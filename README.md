@@ -1,45 +1,38 @@
 # Generating Music with LSTM
 
-This notebook demonstrates how to generate music using Long Short-Term Memory (LSTM) neural networks, specifically processing MIDI files to create a dataset for training.
+This project demonstrates the use of a Long Short-Term Memory (LSTM) network to generate music. The model is trained on a dataset of MIDI files and learns to predict the next note in a sequence, given a previous sequence of notes.
 
 Detailed explanation with visualizations in jupyter notebook: [Notebook](MusicGenerator.ipynb)
 
-## Installation of Required Libraries
-The following libraries are installed for MIDI file processing and model training:
-- fluidsynth
-- pyfluidsynth
-- pretty_midi
-- wandb
+**Key Steps:**
 
-## Importing Libraries
-The necessary libraries such as `numpy`, `pandas`, `tensorflow`, and others are imported to facilitate data handling and model building.
+1. **Data Preparation:**
+   - MIDI files are parsed to extract notes and their corresponding features (pitch, duration, and step).
+   - The data is preprocessed and formatted into sequences suitable for training the LSTM model.
 
-## Weights and Biases Initialization
-Wandb is initialized for logging and tracking the model's performance during training.
+2. **Model Architecture:**
+   - A single-layer LSTM network is used to process the input sequences.
+   - The model has three output layers: one for predicting pitch, one for predicting step, and one for predicting duration.
+   - Custom loss functions are employed to optimize the training process.
 
-## MIDI File Processing
-The notebook processes MIDI files to extract notes and their attributes:
-- Instruments are identified and counted to determine the most common instrument.
-- MIDI files are converted to a structured format of notes, capturing attributes such as pitch, step, and duration.
+3. **Training:**
+   - The model is trained on the prepared dataset using an appropriate optimizer and loss function.
+   - Early stopping is implemented to prevent overfitting.
 
-## Data Visualization
-Visualizations are created to show:
-- The piano roll of the first 1000 notes.
-- Histograms of pitch, step, and duration features to understand their distributions.
+4. **Music Generation:**
+   - Given a seed sequence of notes, the model generates new notes one at a time.
+   - The predicted note is added to the input sequence, and the process is repeated to generate a longer musical piece.
 
-## Dataset Preparation
-The dataset is transformed into sequences suitable for LSTM input, with a defined sequence length and vocabulary size. A custom loss function is defined to handle predictions more effectively.
+5. **Output:**
+   - The generated notes are converted back to a MIDI file, which can be played using a MIDI player.
 
-## Model Architecture
-A single-layer LSTM model is defined with three outputs representing pitch, step, and duration. The model is compiled with a combination of loss functions and weights to optimize training.
+**Key Takeaways:**
 
-## Training
-The model is trained with callbacks for checkpointing and early stopping, allowing it to learn the patterns in the music data over multiple epochs.
+- LSTM networks are effective for modeling sequential data, such as music.
+- Careful data preparation and feature engineering are crucial for successful model training.
+- Experimentation with hyperparameters and model architectures can improve the quality of generated music.
 
-## Music Generation
-After training, the model is used to generate new notes based on a starting sequence. The generation process includes randomness controlled by a temperature parameter.
-
-## MIDI File Output
-Finally, the generated notes are converted back to a MIDI file format using PrettyMIDI for playback.
-
-This notebook provides a comprehensive approach to generating music using machine learning, specifically showcasing the power of LSTMs in learning from sequential data.
+**Future Work:**
+- Explore different LSTM architectures, such as stacked LSTMs or bidirectional LSTMs.
+- Incorporate additional features, such as tempo and dynamics, to enhance the generated music.
+- Implement techniques like beam search or sampling to generate more diverse and creative music.
