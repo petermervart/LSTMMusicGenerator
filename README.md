@@ -1,5 +1,7 @@
 # Generating Music with LSTM
 
+**Authors:** Michal Lüley, Peter Mervart
+
 This project demonstrates the use of a Long Short-Term Memory (LSTM) network to generate music. The model is trained on a dataset of MIDI files and learns to predict the next note in a sequence, given a previous sequence of notes.
 
 Detailed explanation with visualizations in jupyter notebook: [Notebook](MusicGenerator.ipynb)
