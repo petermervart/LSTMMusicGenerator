@@ -26,13 +26,13 @@ Detailed explanation with visualizations in jupyter notebook: [Notebook](MusicGe
 5. **Output:**
    - The generated notes are converted back to a MIDI file, which can be played using a MIDI player.
 
-**Key Takeaways:**
+## Key Takeaways:
 
 - LSTM networks are effective for modeling sequential data, such as music.
 - Careful data preparation and feature engineering are crucial for successful model training.
 - Experimentation with hyperparameters and model architectures can improve the quality of generated music.
 
-**Future Work:**
+## Future Work:
 - Explore different LSTM architectures, such as stacked LSTMs or bidirectional LSTMs.
 - Incorporate additional features, such as tempo and dynamics, to enhance the generated music.
 - Implement techniques like beam search or sampling to generate more diverse and creative music.
